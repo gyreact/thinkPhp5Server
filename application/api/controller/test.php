@@ -11,7 +11,7 @@ use  think\Controller;
 use think\db;
 use think\Model;
 
-class test extends Controller {
+class Test extends Controller {
     public  function  index(){
 
         // 实例化系统数据库类
@@ -20,9 +20,13 @@ class test extends Controller {
 //        $user = Model('TokenBuy');
 //        $user->find();
         /* select查询多条数据 find查询一条数据*/
-        $data = db::table('token_buy')->whereOr('id','>=',1)->select();
-        return json($data);
-        return "1";
+        try {
+            $data = db::table('token_buy')->whereOr('id','>=',1)->select();
+            return json($data);
+        } catch (\Exception $e) {
+            return show(0,$e->getMessage(),"11",201);
+        }
+
     }
 
 

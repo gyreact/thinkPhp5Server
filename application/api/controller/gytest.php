@@ -10,7 +10,7 @@ use  think\Controller;
 use think\db;
 
 
-class gytest extends Controller {
+class Gytest extends Controller {
     public  function  index(){
 
         $data = Db::table('token_buy')->whereOr('id','>=',1)->select();
