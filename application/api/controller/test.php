@@ -8,7 +8,7 @@
 namespace  app\api\controller;
 use app\api\model\TokenBuy;
 use  think\Controller;
-use think\db;
+use think\Db;
 use think\Model;
 
 class Test extends Controller {
@@ -21,8 +21,11 @@ class Test extends Controller {
 //        $user->find();
         /* select查询多条数据 find查询一条数据*/
         try {
-            $data = db::table('token_buy')->whereOr('id','>=',1)->select();
-            return json($data);
+            $data = Db::table('token_buy')->whereOr('id','>=',1)->select();
+
+//            return show(0,"ok",json($data),201);
+
+            return show(1,"ok",$data,201);
         } catch (\Exception $e) {
             return show(0,$e->getMessage(),"11",201);
         }
@@ -40,7 +43,7 @@ class Test extends Controller {
         $datas = $this->request->param();
         try {
             //添加数据到数据库
-            db::table('token_buy')->insert($datas);
+            Db::table('token_buy')->insert($datas);
         } catch (\Exception $e) {
             return show(0,$e->getMessage(),"11",201);
         }

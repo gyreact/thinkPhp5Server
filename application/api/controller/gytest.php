@@ -7,7 +7,7 @@
  */
 namespace  app\api\controller;
 use  think\Controller;
-use think\db;
+use think\Db;
 
 
 class Gytest extends Controller {

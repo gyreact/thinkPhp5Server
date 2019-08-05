@@ -16,8 +16,8 @@ class Index extends  Controller
         return $this->fetch();
     }
 
-    public function token(){
-        return $this->fetch('token');
+    public function token2(){
+        return $this->fetch('token2');
     }
 
 }
